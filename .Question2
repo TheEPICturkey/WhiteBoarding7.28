@@ -1,9 +1,80 @@
 //Question 2
+// Write an algorithm that removes duplicates from an array. Do not use a function like filter() to solve this. Once you have solved the problem, demonstrate how it can be solved with filter(). Solve the problem with and without recursion.
+
+// Example
+// Input: [7, 9, "hi", 12, "hi", 7, 53]
+
+// Output: [7, 9, "hi", 12, 53]
 
 
+//Iteration
+class Program
+{
+    static T[] RemoveDuplicatesIteration<T>(T[] input)
+    {
+        List<T> result = new List<T>();
+        HashSet<T> seen = new HashSet<T>();
+
+        foreach (T item in input)
+        {
+            if (!seen.Contains(item))
+            {
+                result.Add(item);
+                seen.Add(item);
+            }
+        }
+
+        return result.ToArray();
+    }
+
+    static void Main()
+    {
+        var inputArray = new object[] { 7, 9, "hi", 12, "hi", 7, 53 };
+        var outputArray = RemoveDuplicatesIteration(inputArray);
+        Console.WriteLine(string.Join(", ", outputArray));
+    }
+}
+
+Output: 7, 9, hi, 12, 53
 
 
+//Recursion
+class Program
+{
+    static T[] RemoveDuplicatesRecursion<T>(T[] input, int index = 0, HashSet<T> seen = null)
+    {
+        if (seen == null)
+        {
+            seen = new HashSet<T>();
+        }
+
+        if (index == input.Length)
+        {
+            List<T> result = new List<T>();
+            foreach (T item in input)
+            {
+                if (!seen.Contains(item))
+                {
+                    result.Add(item);
+                    seen.Add(item);
+                }
+            }
+            return result.ToArray();
+        }
+
+        seen.Add(input[index]);
+        return RemoveDuplicatesRecursion(input, index + 1, seen);
+    }
+
+    static void Main()
+    {
+        var inputArray = new object[] { 7, 9, "hi", 12, "hi", 7, 53 };
+        var outputArray = RemoveDuplicatesRecursion(inputArray);
+        Console.WriteLine(string.Join(", ", outputArray)); 
+    }
+}
+
+Output: 7, 9, hi, 12, 53
 
 
-//answer
 
