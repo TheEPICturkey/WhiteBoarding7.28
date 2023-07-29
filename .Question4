@@ -1,9 +1,44 @@
 //Question 4
+// Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
+
+// Example
+// Input: "hello"
+
+// Output: false
+
+// Input: "copyright"
+
+// Output: true
 
 
+//Iteration
+class Program
+{
+    static bool UniqueCheckCheckIteration(string input)
+    {
+        for (int i = 0; i < input.Length - 1; i++)
+        {
+            for (int j = i + 1; j < input.Length; j++)
+            {
+                if (input[i] == input[j])
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
+    static void Main()
+    {
+        string inputStr1 = "hello";
+        string inputStr2 = "copyright";
 
+        Console.WriteLine(UniqueCheckIteration(inputStr1)); 
+        Console.WriteLine(UniqueCheckIteration(inputStr2));
+    }
+}
 
-
-//answer
+Output: false
+Output: true
 

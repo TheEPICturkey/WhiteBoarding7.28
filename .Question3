@@ -1,9 +1,99 @@
 //Question 3
+// Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
+
+// Example
+// Input: "aaabccdddda"
+
+// Output: "3ab2c4da"
 
 
+//Iteration
+class Program
+{
+    static string CompressStringIteration(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return input;
+
+        StringBuilder compressed = new StringBuilder();
+        int count = 1;
+
+        for (int i = 1; i < input.Length; i++)
+        {
+            if (input[i] == input[i - 1])
+            {
+                count++;
+            }
+            else
+            {
+                if (count > 1)
+                    compressed.Append(count);
+
+                compressed.Append(input[i - 1]);
+                count = 1;
+            }
+        }
+
+        if (count > 1)
+            compressed.Append(count);
+
+        compressed.Append(input[input.Length - 1]);
+
+        return compressed.ToString();
+    }
+
+    static void Main()
+    {
+        string inputStr = "aaabccdddda";
+        string outputStr = CompressStringIteration(inputStr);
+        Console.WriteLine(outputStr);
+    }
+}
+
+Output: "3ab2c4da"
 
 
+//Recursion
+class Program
+{
+    static string CompressStringRecursion(string input, int index = 0, int count = 1, StringBuilder compressed = null)
+    {
+        if (compressed == null)
+        {
+            compressed = new StringBuilder();
+        }
 
+        if (index == input.Length - 1)
+        {
+            if (count > 1)
+                compressed.Append(count);
 
-//answer
+            compressed.Append(input[index]);
+            return compressed.ToString();
+        }
 
+        if (input[index] == input[index + 1])
+        {
+            count++;
+        }
+        else
+        {
+            if (count > 1)
+                compressed.Append(count);
+
+            compressed.Append(input[index]);
+            count = 1;
+        }
+
+        return CompressStringRecursion(input, index + 1, count, compressed);
+    }
+
+    static void Main()
+    {
+        string inputStr = "aaabccdddda";
+        string outputStr = CompressStringRecursion(inputStr);
+        Console.WriteLine(outputStr);
+    }
+}
+
+ Output: "3ab2c4da"
