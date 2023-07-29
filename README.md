@@ -2,25 +2,25 @@
 
 ### By Brandon Spear
 
-| * Recursion and Iteration testing, created for Epicodus Code Review #14
+| * Recursion and Iteration Whiteboarding, created for Epicodus Code Review #14
 
 ### Technologies Used
-  * Recursion and Iteration testing
+  * Recursion and Iteration Whiteboarding
 
 ### Description
-| * Recursion and Iteration testing
+| * Recursion and Iteration Whiteboarding
 
 ### Application Instructions
-| * Recursion and Iteration testing
+| * Recursion and Iteration Whiteboarding
 
 #### Initial Setup 
-| * Recursion and Iteration testing
+| * Recursion and Iteration Whiteboarding
 
 #### Running the Program
-| * Recursion and Iteration testing
+| * Recursion and Iteration Whiteboarding
 
 ### Known Bugs
-| * Recursion and Iteration testing
+| * Recursion and Iteration Whiteboarding
   
 ### License
 MIT License

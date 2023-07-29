@@ -14,7 +14,7 @@
 //Iteration
 class Program
 {
-    static bool UniqueCheckCheckIteration(string input)
+    static bool UniqueCheckIteration(string input)
     {
         for (int i = 0; i < input.Length - 1; i++)
         {
@@ -42,3 +42,38 @@ class Program
 Output: false
 Output: true
 
+
+//Recursion
+class Program
+{
+    static bool UniqueCheckRecursion(string input, int index = 0)
+    {
+        if (index == input.Length)
+        {
+            return true;
+        }
+
+        char currentChar = input[index];
+        for (int i = index + 1; i < input.Length; i++)
+        {
+            if (currentChar == input[i])
+            {
+                return false;
+            }
+        }
+
+        return UniqueCheckRecursion(input, index + 1);
+    }
+
+    static void Main()
+    {
+        string inputStr1 = "hello";
+        string inputStr2 = "copyright";
+
+        Console.WriteLine(UniqueCheckRecursion(inputStr1)); 
+        Console.WriteLine(UniqueCheckRecursion(inputStr2)); 
+    }
+}
+
+Output: false
+Output: true
